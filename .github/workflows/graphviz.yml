@@ -14,5 +14,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: graphes-svg
-        path: "*.svg"
-        icon_router.png
+        path: "*.svg" | icon_router.png
+        
