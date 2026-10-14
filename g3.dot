@@ -1,0 +1,5 @@
+graph {
+    node [shape="star" style="filled" fillcolor="aqua"];
+    edge [fontsize="20pt" color="red"];
+    B--G [label="4"];
+}
