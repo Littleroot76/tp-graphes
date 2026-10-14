@@ -15,3 +15,4 @@ jobs:
       with:
         name: graphes-svg
         path: "*.svg"
+        icon_router.png
