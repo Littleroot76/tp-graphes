@@ -1,16 +1,17 @@
 #!/bin/bash
 tok=$(cat ~/token.gh)
 
-jq '.artifacts[].id' gh-artifacts.json > liste-id.txt
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $tok" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/Littleroot76/tp-graphes/actions/artifacts > gh-artifacts.json
 
-for id in $(cat liste-id.txt);
-do
-	echo "telechargement de l'artifact $id"
-	curl -L \
-	  -H "Accept: application/vnd.github+json" \
-	  -H "Authorization: Bearer $tok" \
-	  -H "X-GitHub-Api-Version: 2022-11-28" \
-	  --output artifact-$id.zip \
-	  https://api.github.com/repos/Littleroot76/tp-graphes/actions/artifacts/$id/zip
-	unzip -o artifact-$id.zip -d $id
-done
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $tok" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  --output artifact.zip \
+  https://api.github.com/repos/Littleroot76/tp-graphes/actions/artifacts/11882892384/zip
+
+unzip artifact.zip
