@@ -1,3 +1,5 @@
 *.svg
 *.json
 *.zip
+liste-id.txt
+[0-9]*/
